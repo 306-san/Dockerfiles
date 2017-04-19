@@ -9,5 +9,7 @@ PRお待ちしています
 
 ## Version
 - Baseimage: resin/rpi-raspbian
+- reference image: docker_official/ruby
+  - under [Apache 2.0 license](https://github.com/docker-library/repo-info/blob/master/LICENSE).
 - Ruby
   - 2.4.1
