@@ -18,17 +18,21 @@ ENV RUBYGEMS_VERSION 2.6.11
 RUN set -ex \
 	\
 	&& buildDeps=' \
+		autoconf \
 		bison \
+		gcc \
+		g++ \
+		libssl-dev \
 		libgdbm-dev \
+		make \
+		openssl \
 		ruby \
     wget \
-    autoconf \
-    gcc \
-    make \
+		zlib1g-dev \
 	' \
   && sed -i -e "s@archive.raspbian.org@ftp.jaist.ac.jp@" /etc/apt/sources.list \
   && apt-get update \
-	&& apt-get install -y --no-install-recommends $buildDeps zlib1g-dev openssl libssl-dev\
+	&& apt-get install -y --no-install-recommends $buildDeps \
 	&& rm -rf /var/lib/apt/lists/* \
 	\
 	&& wget -O ruby.tar.xz "https://cache.ruby-lang.org/pub/ruby/${RUBY_MAJOR%-rc}/ruby-$RUBY_VERSION.tar.xz" \
@@ -72,12 +76,4 @@ ENV BUNDLE_PATH="$GEM_HOME" \
 ENV PATH $BUNDLE_BIN:$PATH
 RUN mkdir -p "$GEM_HOME" "$BUNDLE_BIN" \
 	&& chmod 777 "$GEM_HOME" "$BUNDLE_BIN"
-LABEL title="306san/check_people"
-LABEL version="1.0"
-RUN cd / && mkdir docker
-WORKDIR /docker
-RUN apt update && apt install -y --no-install-recommends g++
-ADD ./Gemfile /docker/
-ADD ./check_people_in_3_215.rb /docker/
-RUN bundle install
-CMD ["ruby", "check_people_in_3_215.rb"]
+CMD ["bash"]
