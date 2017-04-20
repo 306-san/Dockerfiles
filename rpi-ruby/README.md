@@ -1,11 +1,21 @@
 # 306san/rpi-ruby
-This PC and Raspberry Pi can work ruby images.
-But Docker for Linux can't work it.
-
-これはPCとRaspberry　Piの両方で動くコンテナです。  
-今のところ、Docker for Mac Raspberry Pi上のDockerでの動作確認をしています。  
-しかしLinux上のDockerでは動かないことを確認済みです。  
-PRお待ちしています
+This PC and Raspberry Pi can work ruby images.  
+This image based on arm.  
+Before using this image on linux  
+install qemu system.
+For Ubuntu  
+```
+sudo apt install qemu-user-static 
+```
+Thanks  
+これはPCとRaspberry Piの両方で動くコンテナです。  
+今のところ、Mac or Linux or Raspberry pi2での動作確認をしています。  
+Linuxで使う場合はqemu環境が必要になります。  
+導入していない場合、Ubuntuは
+```
+sudo apt install qemu-user-static 
+```
+で導入できるかと思います。
 
 ## Version
 - Baseimage: resin/rpi-raspbian
