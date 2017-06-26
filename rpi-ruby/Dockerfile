@@ -24,6 +24,7 @@ RUN set -ex \
 		g++ \
 		libssl-dev \
 		libgdbm-dev \
+		libreadline-dev \
 		make \
 		openssl \
 		ruby \
@@ -63,7 +64,7 @@ RUN set -ex \
 	\
 	&& gem update --system "$RUBYGEMS_VERSION"
 
-ENV BUNDLER_VERSION 1.14.6
+ENV BUNDLER_VERSION 1.15.1
 
 RUN gem install bundler --version "$BUNDLER_VERSION"
 # install things globally, for great justice
