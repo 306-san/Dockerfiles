@@ -7,7 +7,7 @@ RUN set -ex \
     && export LANG=ja_jp.utf-8 \
     && apt update \
     && apt upgrade \
-    && apt install -y --no-install-recommends jq curl unzip git pkg-config bash-completion kubectx\
+    && apt install -y --no-install-recommends jq curl unzip git pkg-config bash-completion kubectx openssh-client \
     && curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl \
     && chmod +x ./kubectl \
     && mv ./kubectl /usr/local/bin/kubectl \
